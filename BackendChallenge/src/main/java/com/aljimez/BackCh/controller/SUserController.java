@@ -1,5 +1,5 @@
 package com.aljimez.BackCh.controller;
-
+/*Imports*/
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ import com.aljimez.BackCh.service.SUserServiceImpl;
 @RestController
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
 public class SUserController {
-
+//Invocar service para interpretarlos
 	@Autowired
 	SUserServiceImpl userServiceImpl;
 	
@@ -42,7 +42,7 @@ public class SUserController {
 	private PasswordEncoder passwordEncoder;
 	
 	private JwtGenerator jwtGenerator;
-
+//Constructor
 	@Autowired
 	public SUserController(ISuserDAO iUsuarioDAO, PasswordEncoder bCryptPasswordEncoder, JwtGenerator jwtGenerator,
 			AuthenticationManager authenticationManager) {
@@ -51,7 +51,7 @@ public class SUserController {
 		this.jwtGenerator = jwtGenerator;
 		this.authenticationManager = authenticationManager;
 	}
-	
+	//Endpoints GET,POST,PUT
 	@GetMapping("/response-entity-builder-with-http-headers")
 	public ResponseEntity<String> usingResponseEntityBuilderAndHttpHeaders() {
 	    HttpHeaders responseHeaders = new HttpHeaders();
@@ -84,6 +84,10 @@ public class SUserController {
 		return new ResponseEntity<>(user, HttpStatus.OK);
 	}
 
+	@GetMapping("/")
+	public String welcome() {
+		return"Login & Register server Developede by Alejandro Jiménez Álvarez";
+	}
 	/** Get: List all users */
 	@GetMapping("/susers")
 	public List<Suser> listUsers() {
@@ -105,9 +109,7 @@ public class SUserController {
 		user_selected = userServiceImpl.getUserById(id);
 		user_selected.setUsername(user.getUsername());
 		user_selected.setPassword(user.getPassword());
-		user_selected.setNomApels(user.getNomApels());
-		user_selected.setEmail(user.getEmail());
-
+		
 		return userServiceImpl.updateUser(user_selected);
 	}
 

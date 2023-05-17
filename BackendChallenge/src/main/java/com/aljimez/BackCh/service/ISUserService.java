@@ -1,10 +1,11 @@
 package com.aljimez.BackCh.service;
+/*Imports*/
 
 import java.util.List;
 
 import com.aljimez.BackCh.dto.Suser;
 
-
+//CRUD funciones de User 
 public interface ISUserService {
 
 	public List<Suser> listUsers(); /**Get: List all users */

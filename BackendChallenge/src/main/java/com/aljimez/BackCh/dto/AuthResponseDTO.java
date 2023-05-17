@@ -1,9 +1,10 @@
 package com.aljimez.BackCh.dto;
+/*Imports*/
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Data;
-
+//DTO Acceder y obtener token para acceder
 @Data
 @Entity
 public class AuthResponseDTO {

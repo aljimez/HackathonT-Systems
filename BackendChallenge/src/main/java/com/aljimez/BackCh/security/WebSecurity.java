@@ -67,7 +67,7 @@ public class WebSecurity {
              .requestMatchers(HttpMethod.POST,"/register").hasAnyAuthority("admin")
              .requestMatchers(HttpMethod.PUT,"/susers/**").hasAnyAuthority("admin")
              .requestMatchers(HttpMethod.DELETE,"/susers/**").hasAnyAuthority("admin")
-           
+           .requestMatchers(HttpMethod.GET,"/").permitAll()
              .anyRequest().authenticated()
              .and()
              .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);

@@ -1,7 +1,6 @@
 create database if not exists safein_test;
 use safein_test;
 
-/* Users Table */
 CREATE TABLE IF NOT EXISTS susers(
 id INT NOT NULL AUTO_INCREMENT,
 username varchar(100) NOT NULL UNIQUE,
